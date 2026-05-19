@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Auxílio em Vocação de Profissões | MiniHacka P3 Informática</title>
+    <meta name="description" content="Um site para ajudar estudantes a refletirem sobre vocação profissional por meio de perguntas, áreas de interesse e sugestões de carreiras." />
+    <meta name="theme-color" content="#9333ea" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body style="--primary: #9333ea; --secondary: #0ea5e9; --accent: #fb7185;">
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Auxílio em Vocação de Profissões">
+        <span class="brand-mark">04</span>
+        <span>Vocação</span>
+      </a>
+      <nav aria-label="Navegação principal">
+        <a href="#recursos">Recursos</a>
+        <a href="#exemplos">Exemplos</a>
+        <a href="#previa">Prévia</a>
+        <a href="#equipe">Equipe</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero-copy">
+          <h1>Auxílio em Vocação de Profissões</h1>
+          <p class="tagline">Interesses, habilidades e trilhas profissionais para explorar.</p>
+          <p>Um site para ajudar estudantes a refletirem sobre vocação profissional por meio de perguntas, áreas de interesse e sugestões de carreiras.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#previa">Iniciar trilha</a>
+            <a class="button button-secondary" href="#equipe">Conhecer equipe</a>
+          </div>
+          <ol class="step-list" aria-label="Fluxo principal"><li>Responder perguntas</li><li>Ver áreas</li><li>Comparar profissões</li></ol>
+        </div>
+        <div class="hero-media" aria-label="Visual do projeto">
+          <img src="assets/visual.svg" alt="Prévia visual do site Auxílio em Vocação de Profissões" />
+        </div>
+      </section>
+
+      <section class="section" id="recursos">
+        <div class="section-heading">
+          <span>Projeto da equipe 04</span>
+          <h2>Exemplo genérico ligado à ideia da equipe.</h2>
+        </div>
+        <div class="feature-grid">
+        <article class="feature-card">
+          <span class="feature-index">01</span>
+          <h3>Questionário de interesses</h3>
+          <p>O aluno responde perguntas sobre preferências, rotina e habilidades.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-index">02</span>
+          <h3>Áreas profissionais</h3>
+          <p>Tecnologia, saúde, gestão, artes e educação aparecem como trilhas de exploração.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-index">03</span>
+          <h3>Sugestões explicadas</h3>
+          <p>Cada profissão vem com descrição simples e próximos passos de pesquisa.</p>
+        </article></div>
+      </section>
+
+      <section class="section examples-section" id="exemplos">
+        <div class="section-heading">
+          <span>Exemplos de uso</span>
+          <h2>Dados fictícios para demonstrar o funcionamento.</h2>
+        </div>
+        <div class="examples-grid">
+        <article class="example-card">
+          <h3>Perfil investigativo</h3>
+          <p>Aluno que gosta de resolver problemas recebe opções ligadas a tecnologia e ciência.</p>
+        </article>
+        <article class="example-card">
+          <h3>Perfil comunicador</h3>
+          <p>Interesse por pessoas e apresentação gera sugestões em gestão, eventos ou educação.</p>
+        </article>
+        <article class="example-card">
+          <h3>Trilha de pesquisa</h3>
+          <p>O site orienta pesquisar rotina, cursos e mercado antes de escolher.</p>
+        </article></div>
+      </section>
+
+      <section class="section preview-section" id="previa">
+        <div class="preview-copy">
+          <span>Prévia interativa</span>
+          <h2>Troque o cenário e veja uma simulação.</h2>
+          <p data-demo-summary>Sugestão fictícia: desenvolvimento web, suporte técnico e redes.</p>
+          <div class="chip-row" aria-label="Opções da prévia">
+          <button class="chip is-active" type="button" data-scenario-title="Perfil: resolver problemas" data-scenario-summary="Sugestão fictícia: desenvolvimento web, suporte técnico e redes." data-scenario-meta="Afinidade alta" data-scenario-detail="A trilha indica cursos, habilidades e atividades práticas para experimentar.">Tecnologia</button>
+          <button class="chip" type="button" data-scenario-title="Perfil: falar com pessoas" data-scenario-summary="Sugestão fictícia: eventos, atendimento e produção de conteúdo." data-scenario-meta="Afinidade média" data-scenario-detail="O exemplo mostra profissões e perguntas para o estudante refletir melhor.">Comunicação</button>
+          <button class="chip" type="button" data-scenario-title="Comparar carreiras" data-scenario-summary="O aluno salva profissões favoritas para comparar depois." data-scenario-meta="Próximo passo" data-scenario-detail="A decisão não é automática; o site organiza caminhos para investigação.">Pesquisa</button></div>
+          <article class="demo-panel" aria-live="polite">
+            <span data-demo-meta>Afinidade alta</span>
+            <strong data-demo-title>Perfil: resolver problemas</strong>
+            <p data-demo-detail>A trilha indica cursos, habilidades e atividades práticas para experimentar.</p>
+          </article>
+          <button class="button button-primary" type="button" data-demo-action>Iniciar trilha</button>
+          <p class="counter" data-counter>Interações nesta visita: 0</p>
+        </div>
+        <div class="metric-grid">
+          <article class="metric-card">
+            <span>Perguntas</span>
+            <strong>15</strong>
+            <p>Para mapear interesses.</p>
+          </article>
+          <article class="metric-card">
+            <span>Áreas</span>
+            <strong>6</strong>
+            <p>Trilhas profissionais.</p>
+          </article>
+          <article class="metric-card">
+            <span>Favoritas</span>
+            <strong>3</strong>
+            <p>Carreiras salvas.</p>
+          </article></div>
+      </section>
+
+      <section class="section team-section" id="equipe">
+        <div class="section-heading">
+          <span>Integrantes</span>
+          <h2>Funções da equipe no desenvolvimento.</h2>
+        </div>
+        <div class="team-grid">
+        <article class="member-card">
+          <span>Gerente de Ideias</span>
+          <strong>LOHANNA SANTOS SILVA</strong>
+        </article>
+        <article class="member-card">
+          <span>Designer</span>
+          <strong>AGATHA LOURRANY MENEZES PINHEIRO</strong>
+        </article>
+        <article class="member-card">
+          <span>Construtor(a) HTML</span>
+          <strong>GEOVANY KELWIN TAVARES DA COSTA</strong>
+        </article>
+        <article class="member-card">
+          <span>Estilista CSS</span>
+          <strong>MARIA CECILIA PEREIRA DE CASTRO</strong>
+        </article></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>MiniHacka 2026-1 - 3º período de Informática (Integrado).</p>
+      <a href="#inicio">Voltar ao topo</a>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
