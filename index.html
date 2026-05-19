@@ -1,152 +1,642 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Auxílio em Vocação de Profissões | MiniHacka P3 Informática</title>
-    <meta name="description" content="Um site para ajudar estudantes a refletirem sobre vocação profissional por meio de perguntas, áreas de interesse e sugestões de carreiras." />
-    <meta name="theme-color" content="#9333ea" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body style="--primary: #9333ea; --secondary: #0ea5e9; --accent: #fb7185;">
-    <header class="site-header">
-      <a class="brand" href="#inicio" aria-label="Auxílio em Vocação de Profissões">
-        <span class="brand-mark">04</span>
-        <span>Vocação</span>
-      </a>
-      <nav aria-label="Navegação principal">
-        <a href="#recursos">Recursos</a>
-        <a href="#exemplos">Exemplos</a>
-        <a href="#previa">Prévia</a>
-        <a href="#equipe">Equipe</a>
-      </nav>
-    </header>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <main>
-      <section class="hero" id="inicio">
-        <div class="hero-copy">
-          <h1>Auxílio em Vocação de Profissões</h1>
-          <p class="tagline">Interesses, habilidades e trilhas profissionais para explorar.</p>
-          <p>Um site para ajudar estudantes a refletirem sobre vocação profissional por meio de perguntas, áreas de interesse e sugestões de carreiras.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#previa">Iniciar trilha</a>
-            <a class="button button-secondary" href="#equipe">Conhecer equipe</a>
-          </div>
-          <ol class="step-list" aria-label="Fluxo principal"><li>Responder perguntas</li><li>Ver áreas</li><li>Comparar profissões</li></ol>
+<title>Lumora - Descubra Sua Profissão</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:
+    radial-gradient(circle at top left,#3b0764,#140021 40%),
+    radial-gradient(circle at bottom right,#001f4d,#000814 50%);
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* EFEITOS */
+
+body::before{
+    content:'';
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#00e5ff;
+    filter:blur(180px);
+    opacity:0.12;
+    top:-150px;
+    left:-100px;
+}
+
+body::after{
+    content:'';
+    position:fixed;
+    width:450px;
+    height:450px;
+    background:#ff00cc;
+    filter:blur(180px);
+    opacity:0.10;
+    bottom:-120px;
+    right:-120px;
+}
+
+/* CONTAINER */
+
+.container{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+    position:relative;
+    z-index:2;
+}
+
+/* HEADER */
+
+.header{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.logo{
+    font-size:72px;
+    font-weight:800;
+    background:linear-gradient(90deg,#00e5ff,#ff00cc);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    letter-spacing:2px;
+}
+
+.slogan{
+    font-size:22px;
+    color:#d8d8d8;
+    margin-top:10px;
+    font-weight:300;
+}
+
+/* CARD PRINCIPAL */
+
+.quiz-wrapper{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(18px);
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:0 25px 60px rgba(0,0,0,0.5);
+}
+
+/* BANNER */
+
+.banner{
+    height:340px;
+    background:
+    linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7)),
+    url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.banner h1{
+    font-size:52px;
+    margin-bottom:15px;
+}
+
+.banner p{
+    font-size:20px;
+    color:#f1f1f1;
+}
+
+/* CONTEÚDO */
+
+.content{
+    padding:45px;
+}
+
+/* QUESTÕES */
+
+.question-card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:25px;
+    margin-bottom:35px;
+    overflow:hidden;
+    transition:0.4s;
+}
+
+.question-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 15px 40px rgba(0,0,0,0.4);
+}
+
+.question-image{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+}
+
+.question-body{
+    padding:30px;
+}
+
+.question-title{
+    font-size:25px;
+    margin-bottom:25px;
+    font-weight:600;
+}
+
+/* OPÇÕES */
+
+.options{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.option{
+    background:rgba(255,255,255,0.07);
+    padding:18px 22px;
+    border-radius:18px;
+    cursor:pointer;
+    transition:0.3s;
+    border:2px solid transparent;
+}
+
+.option:hover{
+    border-color:#00e5ff;
+    background:linear-gradient(90deg,#001d3d,#003566);
+    transform:scale(1.02);
+}
+
+.option input{
+    margin-right:10px;
+    accent-color:#00e5ff;
+}
+
+/* RESULTADOS */
+
+.resultados{
+    margin-top:60px;
+}
+
+.resultados h2{
+    font-size:38px;
+    margin-bottom:30px;
+    text-align:center;
+}
+
+.area{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:22px;
+    padding:30px;
+    margin-bottom:25px;
+    transition:0.4s;
+}
+
+.area:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.4);
+}
+
+.area h3{
+    font-size:28px;
+    margin-bottom:15px;
+    color:#00e5ff;
+}
+
+.area p{
+    line-height:1.8;
+    color:#e5e5e5;
+}
+
+/* BOTÃO */
+
+.btn-area{
+    margin-top:45px;
+    text-align:center;
+}
+
+.btn{
+    background:linear-gradient(90deg,#00e5ff,#7b2cff,#ff00cc);
+    border:none;
+    color:white;
+    padding:20px 60px;
+    border-radius:18px;
+    font-size:22px;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.4s;
+    box-shadow:0 15px 35px rgba(123,44,255,0.4);
+}
+
+.btn:hover{
+    transform:translateY(-5px) scale(1.03);
+    box-shadow:0 20px 50px rgba(123,44,255,0.6);
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    padding:40px 20px;
+    color:#cfcfcf;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:900px){
+
+    .options{
+        grid-template-columns:1fr;
+    }
+
+    .banner h1{
+        font-size:38px;
+    }
+
+    .logo{
+        font-size:52px;
+    }
+
+    .content{
+        padding:25px;
+    }
+
+    .question-title{
+        font-size:20px;
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+
+    <div class="header">
+        <div class="logo">LUMORA</div>
+        <div class="slogan">✨ Ilumine Seu Futuro ✨</div>
+    </div>
+
+    <!-- QUIZ -->
+
+    <div class="quiz-wrapper">
+
+        <!-- BANNER -->
+
+        <div class="banner">
+            <div>
+                <h1>Descubra Sua Profissão Ideal</h1>
+                <p>Responda as perguntas e veja qual carreira combina mais com você.</p>
+            </div>
         </div>
-        <div class="hero-media" aria-label="Visual do projeto">
-          <img src="assets/visual.svg" alt="Prévia visual do site Auxílio em Vocação de Profissões" />
+
+        <!-- CONTEÚDO -->
+
+        <div class="content">
+
+            <!-- PERGUNTA 1 -->
+
+            <div class="question-card">
+
+                <img class="question-image"
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600">
+
+                <div class="question-body">
+
+                    <div class="question-title">
+                        1. Qual atividade você mais gosta?
+                    </div>
+
+                    <div class="options">
+
+                        <label class="option"><input type="radio" name="q1"> Criar tecnologias</label>
+                        <label class="option"><input type="radio" name="q1"> Ajudar pessoas</label>
+                        <label class="option"><input type="radio" name="q1"> Desenhar e criar artes</label>
+                        <label class="option"><input type="radio" name="q1"> Liderar equipes</label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PERGUNTA 2 -->
+
+            <div class="question-card">
+
+                <img class="question-image"
+                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600">
+
+                <div class="question-body">
+
+                    <div class="question-title">
+                        2. Como seus amigos te descrevem?
+                    </div>
+
+                    <div class="options">
+
+                        <label class="option"><input type="radio" name="q2"> Inteligente</label>
+                        <label class="option"><input type="radio" name="q2"> Criativo</label>
+                        <label class="option"><input type="radio" name="q2"> Comunicativo</label>
+                        <label class="option"><input type="radio" name="q2"> Organizado</label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PERGUNTA 3 -->
+
+            <div class="question-card">
+
+                <img class="question-image"
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600">
+
+                <div class="question-body">
+
+                    <div class="question-title">
+                        3. Você prefere trabalhar:
+                    </div>
+
+                    <div class="options">
+
+                        <label class="option"><input type="radio" name="q3"> Com computadores</label>
+                        <label class="option"><input type="radio" name="q3"> Com pessoas</label>
+                        <label class="option"><input type="radio" name="q3"> Em projetos artísticos</label>
+                        <label class="option"><input type="radio" name="q3"> Gerenciando negócios</label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PERGUNTA 4 -->
+
+            <div class="question-card">
+
+                <img class="question-image"
+                src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600">
+
+                <div class="question-body">
+
+                    <div class="question-title">
+                        4. Qual matéria você mais gosta?
+                    </div>
+
+                    <div class="options">
+
+                        <label class="option"><input type="radio" name="q4"> Matemática</label>
+                        <label class="option"><input type="radio" name="q4"> Biologia</label>
+                        <label class="option"><input type="radio" name="q4"> Artes</label>
+                        <label class="option"><input type="radio" name="q4"> Administração</label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PERGUNTA 5 -->
+
+            <div class="question-card">
+
+                <img class="question-image"
+                src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1600">
+
+                <div class="question-body">
+
+                    <div class="question-title">
+                        5. Qual ambiente você prefere?
+                    </div>
+
+                    <div class="options">
+
+                        <label class="option"><input type="radio" name="q5"> Escritório tecnológico</label>
+                        <label class="option"><input type="radio" name="q5"> Hospital ou clínica</label>
+                        <label class="option"><input type="radio" name="q5"> Estúdio criativo</label>
+                        <label class="option"><input type="radio" name="q5"> Empresa</label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PERGUNTA 6 -->
+
+            <div class="question-card">
+
+                <img class="question-image"
+                src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1600">
+
+                <div class="question-body">
+
+                    <div class="question-title">
+                        6. Você gosta de resolver:
+                    </div>
+
+                    <div class="options">
+
+                        <label class="option"><input type="radio" name="q6"> Problemas técnicos</label>
+                        <label class="option"><input type="radio" name="q6"> Problemas humanos</label>
+                        <label class="option"><input type="radio" name="q6"> Desafios criativos</label>
+                        <label class="option"><input type="radio" name="q6"> Estratégias de negócios</label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PERGUNTA 7 -->
+
+            <div class="question-card">
+
+                <img class="question-image"
+                src="https://images.unsplash.com/photo-1522202222206-b7505063c9ff?q=80&w=1600">
+
+                <div class="question-body">
+
+                    <div class="question-title">
+                        7. Qual dessas profissões mais chama sua atenção?
+                    </div>
+
+                    <div class="options">
+
+                        <label class="option"><input type="radio" name="q7"> Programador</label>
+                        <label class="option"><input type="radio" name="q7"> Médico</label>
+                        <label class="option"><input type="radio" name="q7"> Designer</label>
+                        <label class="option"><input type="radio" name="q7"> Empresário</label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PERGUNTA 8 -->
+
+            <div class="question-card">
+
+                <img class="question-image"
+                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1600">
+
+                <div class="question-body">
+
+                    <div class="question-title">
+                        8. O que é mais importante no trabalho?
+                    </div>
+
+                    <div class="options">
+
+                        <label class="option"><input type="radio" name="q8"> Inovação</label>
+                        <label class="option"><input type="radio" name="q8"> Ajudar pessoas</label>
+                        <label class="option"><input type="radio" name="q8"> Criatividade</label>
+                        <label class="option"><input type="radio" name="q8"> Dinheiro e liderança</label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PERGUNTA 9 -->
+
+            <div class="question-card">
+
+                <img class="question-image"
+                src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1600">
+
+                <div class="question-body">
+
+                    <div class="question-title">
+                        9. Como você prefere aprender?
+                    </div>
+
+                    <div class="options">
+
+                        <label class="option"><input type="radio" name="q9"> Praticando tecnologia</label>
+                        <label class="option"><input type="radio" name="q9"> Conversando com pessoas</label>
+                        <label class="option"><input type="radio" name="q9"> Criando projetos</label>
+                        <label class="option"><input type="radio" name="q9"> Liderando atividades</label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PERGUNTA 10 -->
+
+            <div class="question-card">
+
+                <img class="question-image"
+                src="https://images.unsplash.com/photo-1516321165247-4aa89a48be28?q=80&w=1600">
+
+                <div class="question-body">
+
+                    <div class="question-title">
+                        10. Qual futuro você imagina para você?
+                    </div>
+
+                    <div class="options">
+
+                        <label class="option"><input type="radio" name="q10"> Criando tecnologias</label>
+                        <label class="option"><input type="radio" name="q10"> Salvando vidas</label>
+                        <label class="option"><input type="radio" name="q10"> Trabalhando com arte</label>
+                        <label class="option"><input type="radio" name="q10"> Construindo empresas</label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- BOTÃO -->
+
+            <div class="btn-area">
+                <button class="btn">
+                    🚀 VER MEU RESULTADO
+                </button>
+            </div>
+
+            <!-- RESULTADOS -->
+
+            <div class="resultados">
+
+                <h2>🌟 Áreas Profissionais</h2>
+
+                <div class="area">
+                    <h3>💻 Tecnologia</h3>
+                    <p>
+                        A área de tecnologia é ideal para pessoas criativas e analíticas que gostam de computadores, inovação e soluções digitais.
+                        Algumas profissões incluem Programador, Desenvolvedor Web, Engenheiro de Software, Analista de Dados e Especialista em Inteligência Artificial.
+                    </p>
+                </div>
+
+                <div class="area">
+                    <h3>🩺 Saúde</h3>
+                    <p>
+                        A área da saúde é perfeita para quem gosta de cuidar das pessoas e ajudar vidas.
+                        Você pode seguir carreiras como Medicina, Enfermagem, Psicologia, Nutrição e Fisioterapia.
+                    </p>
+                </div>
+
+                <div class="area">
+                    <h3>🎨 Criatividade e Artes</h3>
+                    <p>
+                        Essa área combina com pessoas criativas, imaginativas e apaixonadas por arte e design.
+                        Profissões incluem Designer Gráfico, Fotógrafo, Publicitário, Editor de Vídeo e Diretor de Arte.
+                    </p>
+                </div>
+
+                <div class="area">
+                    <h3>📈 Negócios e Administração</h3>
+                    <p>
+                        Ideal para quem gosta de liderança, organização e empreendedorismo.
+                        Algumas carreiras são Administração, Marketing, Gestão Empresarial, Recursos Humanos e Empreendedorismo.
+                    </p>
+                </div>
+
+            </div>
+
         </div>
-      </section>
 
-      <section class="section" id="recursos">
-        <div class="section-heading">
-          <span>Projeto da equipe 04</span>
-          <h2>Exemplo genérico ligado à ideia da equipe.</h2>
-        </div>
-        <div class="feature-grid">
-        <article class="feature-card">
-          <span class="feature-index">01</span>
-          <h3>Questionário de interesses</h3>
-          <p>O aluno responde perguntas sobre preferências, rotina e habilidades.</p>
-        </article>
-        <article class="feature-card">
-          <span class="feature-index">02</span>
-          <h3>Áreas profissionais</h3>
-          <p>Tecnologia, saúde, gestão, artes e educação aparecem como trilhas de exploração.</p>
-        </article>
-        <article class="feature-card">
-          <span class="feature-index">03</span>
-          <h3>Sugestões explicadas</h3>
-          <p>Cada profissão vem com descrição simples e próximos passos de pesquisa.</p>
-        </article></div>
-      </section>
+    </div>
 
-      <section class="section examples-section" id="exemplos">
-        <div class="section-heading">
-          <span>Exemplos de uso</span>
-          <h2>Dados fictícios para demonstrar o funcionamento.</h2>
-        </div>
-        <div class="examples-grid">
-        <article class="example-card">
-          <h3>Perfil investigativo</h3>
-          <p>Aluno que gosta de resolver problemas recebe opções ligadas a tecnologia e ciência.</p>
-        </article>
-        <article class="example-card">
-          <h3>Perfil comunicador</h3>
-          <p>Interesse por pessoas e apresentação gera sugestões em gestão, eventos ou educação.</p>
-        </article>
-        <article class="example-card">
-          <h3>Trilha de pesquisa</h3>
-          <p>O site orienta pesquisar rotina, cursos e mercado antes de escolher.</p>
-        </article></div>
-      </section>
+    <!-- FOOTER -->
 
-      <section class="section preview-section" id="previa">
-        <div class="preview-copy">
-          <span>Prévia interativa</span>
-          <h2>Troque o cenário e veja uma simulação.</h2>
-          <p data-demo-summary>Sugestão fictícia: desenvolvimento web, suporte técnico e redes.</p>
-          <div class="chip-row" aria-label="Opções da prévia">
-          <button class="chip is-active" type="button" data-scenario-title="Perfil: resolver problemas" data-scenario-summary="Sugestão fictícia: desenvolvimento web, suporte técnico e redes." data-scenario-meta="Afinidade alta" data-scenario-detail="A trilha indica cursos, habilidades e atividades práticas para experimentar.">Tecnologia</button>
-          <button class="chip" type="button" data-scenario-title="Perfil: falar com pessoas" data-scenario-summary="Sugestão fictícia: eventos, atendimento e produção de conteúdo." data-scenario-meta="Afinidade média" data-scenario-detail="O exemplo mostra profissões e perguntas para o estudante refletir melhor.">Comunicação</button>
-          <button class="chip" type="button" data-scenario-title="Comparar carreiras" data-scenario-summary="O aluno salva profissões favoritas para comparar depois." data-scenario-meta="Próximo passo" data-scenario-detail="A decisão não é automática; o site organiza caminhos para investigação.">Pesquisa</button></div>
-          <article class="demo-panel" aria-live="polite">
-            <span data-demo-meta>Afinidade alta</span>
-            <strong data-demo-title>Perfil: resolver problemas</strong>
-            <p data-demo-detail>A trilha indica cursos, habilidades e atividades práticas para experimentar.</p>
-          </article>
-          <button class="button button-primary" type="button" data-demo-action>Iniciar trilha</button>
-          <p class="counter" data-counter>Interações nesta visita: 0</p>
-        </div>
-        <div class="metric-grid">
-          <article class="metric-card">
-            <span>Perguntas</span>
-            <strong>15</strong>
-            <p>Para mapear interesses.</p>
-          </article>
-          <article class="metric-card">
-            <span>Áreas</span>
-            <strong>6</strong>
-            <p>Trilhas profissionais.</p>
-          </article>
-          <article class="metric-card">
-            <span>Favoritas</span>
-            <strong>3</strong>
-            <p>Carreiras salvas.</p>
-          </article></div>
-      </section>
+    <div class="footer">
+        © 2026 Lumora — Ilumine Seu Futuro ✨
+    </div>
 
-      <section class="section team-section" id="equipe">
-        <div class="section-heading">
-          <span>Integrantes</span>
-          <h2>Funções da equipe no desenvolvimento.</h2>
-        </div>
-        <div class="team-grid">
-        <article class="member-card">
-          <span>Gerente de Ideias</span>
-          <strong>LOHANNA SANTOS SILVA</strong>
-        </article>
-        <article class="member-card">
-          <span>Designer</span>
-          <strong>AGATHA LOURRANY MENEZES PINHEIRO</strong>
-        </article>
-        <article class="member-card">
-          <span>Construtor(a) HTML</span>
-          <strong>GEOVANY KELWIN TAVARES DA COSTA</strong>
-        </article>
-        <article class="member-card">
-          <span>Estilista CSS</span>
-          <strong>MARIA CECILIA PEREIRA DE CASTRO</strong>
-        </article></div>
-      </section>
-    </main>
+</div>
 
-    <footer>
-      <p>MiniHacka 2026-1 - 3º período de Informática (Integrado).</p>
-      <a href="#inicio">Voltar ao topo</a>
-    </footer>
-
-    <script src="script.js" defer></script>
-  </body>
+</body>
 </html>

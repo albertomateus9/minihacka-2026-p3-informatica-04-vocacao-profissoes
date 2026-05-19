@@ -1,16 +1,17 @@
-# Auxílio em Vocação de Profissões
+# Lumora - Descubra Sua Profissão
 
-Site estático do projeto **Auxílio em Vocação de Profissões**, desenvolvido para a MiniHacka 2026-1 da turma do 3º período de Informática (Integrado). Esta versão funciona como um exemplo genérico e temático do produto, com dados fictícios e uma prévia interativa.
+Protótipo entregue pela equipe 4 da MiniHacka 2026-1, turma do 3º período de Informática (Integrado). O site apresenta o **Lumora**, uma experiência de auxílio vocacional para estudantes descobrirem áreas profissionais de acordo com interesses e preferências.
 
 ## Ideia
 
-Um site para ajudar estudantes a refletirem sobre vocação profissional por meio de perguntas, áreas de interesse e sugestões de carreiras.
+Um site para ajudar estudantes a refletirem sobre vocação profissional por meio de um quiz interativo, imagens temáticas e apresentação de áreas como tecnologia, saúde, criatividade, artes, negócios e administração.
 
-## Exemplos temáticos
+## Conteúdo do protótipo
 
-- **Perfil investigativo:** Aluno que gosta de resolver problemas recebe opções ligadas a tecnologia e ciência.
-- **Perfil comunicador:** Interesse por pessoas e apresentação gera sugestões em gestão, eventos ou educação.
-- **Trilha de pesquisa:** O site orienta pesquisar rotina, cursos e mercado antes de escolher.
+- Página inicial com a marca Lumora e chamada para descobrir a profissão ideal.
+- Perguntas de perfil com alternativas sobre rotina, interesses e preferências.
+- Seção final com áreas profissionais e exemplos de carreiras.
+- Layout visual com CSS incorporado e imagens externas usadas como referência temática.
 
 ## Equipe
 
